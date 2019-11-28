@@ -1,12 +1,21 @@
-<form action="/Product/Save" method="POST">
+@model exemplo_mvc_form.Models.Product
+
+<form asp-controller="Product" asp-action="Save" method="POST">
   Id:
-  <input type="text" name="id" />
+  <input asp-asp-for="Id" />
+  <span asp-validation-for="Id"></span>
   <br>
   Name:
-  <input type="text" name="name" />
+  <input asp-asp-for="Name" />
+  <span asp-validation-for="Name"></span>
   <br>
   Price:
-  <input type="text" name="price" />
+  <input asp-asp-for="Price" />
+  <span asp-validation-for="Price"></span>
   <br>
   <button type="submit">Save</button>
 </form>
+
+@if(ViewBag.Validacao != null) {
+  <span> @ViewBag.Validacao </span>
+}
